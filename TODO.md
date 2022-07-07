@@ -1,10 +1,10 @@
 ## TODO
 
-- [ ] Implement Store
-- [ ] Implement MemoryStore
 
 ## DONE
 
+- [x] Implement Store
+- [x] Implement MemoryStore
 - [x] Directory structure
 - [x] Implement Session
   - [x] save

@@ -61,7 +61,7 @@
     "no-eval": "error",
     "no-implicit-globals": "error",
     "prefer-const": "error",
-    "no-magic-numbers": "error",
+    "no-magic-numbers": "off",
     "no-process-exit": "error",
     "no-process-env": "error",
     "no-return-assign": "error",
@@ -103,7 +103,6 @@
         "max-len": "warn",
         "max-statements": "off",
         "no-console": "off",
-        "no-magic-numbers": "off",
         "handle-callback-err": "off"
       }
     }
