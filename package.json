@@ -1,0 +1,24 @@
+{
+  "name": "myserver-session",
+  "version": "1.0.0",
+  "description": "cookie session module for myserver",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitinsharmacs/myserver-session.git"
+  },
+  "keywords": [
+    "session",
+    "cookie",
+    "myserver-session"
+  ],
+  "author": "nitin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nitinsharmacs/myserver-session/issues"
+  },
+  "homepage": "https://github.com/nitinsharmacs/myserver-session#readme"
+}
