@@ -24,7 +24,7 @@ APIs
 ### Mechanism
 
 * It takes a store where to store the session data
-* It can also take database to store the session data
+* It can also take database to store the session data [experimental]
 
 ``` js
 const memoryStore = new MemoryStore('sessions');
