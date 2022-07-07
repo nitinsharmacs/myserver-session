@@ -44,3 +44,34 @@ router.get('/logout', (req, res) => {
   });
 });
 ```
+
+## Installation
+
+This node module can be installed using npm
+
+```console
+$ npm install https://github.com/nitinsharmacs/myserver-session
+```
+
+## Example
+
+  To view the example, clone the myserver repo and install the dependencies:
+
+```console
+$ git clone git://github.com/nitinsharmacs/myserver-session
+$ cd myserver-session
+$ npm install
+```
+
+```console
+$ node examples/server.js
+```
+
+### Running Tests
+
+To run tests, install the mocha dependancy and run the tests:
+
+```console
+$ npm install mocha
+$ npm test
+```
