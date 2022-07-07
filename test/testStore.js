@@ -10,9 +10,8 @@ describe('Store', () => {
 
       const memoryStore = {
         sessions: {
-          insert: function (session, cb) {
+          insert: function (session) {
             storedSession = session;
-            cb(null);
           }
         }
       };
@@ -32,9 +31,9 @@ describe('Store', () => {
       let querySessionId = null;
       const memoryStore = {
         sessions: {
-          find: function (sessionId, cb) {
-            querySessionId = sessionId;
-            cb(null, sessions[0]);
+          find: function (query) {
+            querySessionId = query['$eq']['sessionId'];
+            return sessions[querySessionId];
           }
         }
       };
@@ -47,16 +46,16 @@ describe('Store', () => {
       });
     });
 
-    it('should return null if no session found', (done) => {
+    it('should return nothing if no session found', (done) => {
       const sessionId = new Date().getTime();
       const sessions = [];
 
       let querySessionId = null;
       const memoryStore = {
         sessions: {
-          find: function (sessionId, cb) {
-            querySessionId = sessionId;
-            cb(null, sessions[0] ? sessions[0] : null);
+          find: function (query) {
+            querySessionId = query['$eq']['sessionId'];
+            return sessions[0];
           }
         }
       };
@@ -73,16 +72,18 @@ describe('Store', () => {
   describe('delete', () => {
     it('should delete session of given id from the store', (done) => {
       const sessionId = new Date().getTime();
-      let sessions = [{ sessionId, userId: 1 }, { sessionId: 1212, userId: 2 }];
+      let sessions = [
+        { sessionId, userId: 1 },
+        { sessionId: 1212, userId: 2 }
+      ];
       const updatedSessions = [{ sessionId: 1212, userId: 2 }];
 
       let querySessionId = null;
       const memoryStore = {
         sessions: {
-          delete: function (sessionId, cb) {
-            querySessionId = sessionId;
+          delete: function (query) {
+            querySessionId = query['$eq']['sessionId'];
             sessions = sessions.filter(sess => sess.sessionId !== sessionId);
-            cb(null);
           }
         }
       };

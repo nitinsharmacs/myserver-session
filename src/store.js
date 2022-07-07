@@ -5,30 +5,20 @@ class Store {
   }
 
   insert(session, cb) {
-    this.#store.sessions.insert(session, (err) => {
-      if (err) {
-        return cb(err);
-      }
-      return cb(null);
-    });
+    this.#store.sessions.insert(session);
+    cb(null);
   }
 
   find(sessionId, cb) {
-    this.#store.sessions.find(sessionId, (err, session) => {
-      if (err) {
-        return cb(err, null);
-      }
-      return cb(null, session);
-    });
+    const session = this.#store.sessions.find(
+      { $eq: { sessionId: sessionId } }
+    );
+    cb(null, session);
   }
 
   delete(sessionId, cb) {
-    this.#store.sessions.delete(sessionId, (err) => {
-      if (err) {
-        return cb(err);
-      }
-      return cb(null);
-    });
+    this.#store.sessions.delete({ $eq: { sessionId: sessionId } });
+    cb(null);
   }
 }
 

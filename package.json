@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/nitinsharmacs/myserver-session/issues"
   },
-  "homepage": "https://github.com/nitinsharmacs/myserver-session#readme"
+  "homepage": "https://github.com/nitinsharmacs/myserver-session#readme",
+  "dependencies": {
+    "myserver": "github:nitinsharmacs/myserver"
+  }
 }

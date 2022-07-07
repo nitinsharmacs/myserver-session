@@ -1,5 +1,6 @@
 ## TODO
 
+- [ ] Make session to get options about cookies
 
 ## DONE
 
