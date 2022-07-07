@@ -4,6 +4,12 @@ const MemoryStore = require('./src/memoryStore.js');
 const { cookieParser } = require('./src/util/cookieParser.js');
 const { generateId } = require('./src/util/idGenerator.js');
 
+const copyProperties = (targetObj, sourceObj) => {
+  for (const key in sourceObj) {
+    targetObj[key] = sourceObj[key];
+  }
+};
+
 const session = () => {
   const memoryStore = new MemoryStore();
   memoryStore.addTable('sessions');
@@ -33,8 +39,7 @@ const session = () => {
         }
 
         if (sess) {
-          req.session.sessionId = sess.sessionId;
-          req.session.userId = sess.userId;
+          copyProperties(req.session, sess);
         }
 
         return next();

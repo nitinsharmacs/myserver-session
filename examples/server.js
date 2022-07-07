@@ -9,6 +9,7 @@ router.use(session());
 router.get('/login', (req, res) => {
   if (!req.session.sessionId) {
     req.session.userId = 1212;
+    req.session.username = 'nitin';
     req.session.saveSession(() => {
       console.log('saved session');
       res.redirect('/');
@@ -21,6 +22,7 @@ router.get('/login', (req, res) => {
 
 router.get('/', (req, res) => {
   console.log(req.session.sessionId);
+  console.log(req.session.username);
   res.send('ok');
 });
 
