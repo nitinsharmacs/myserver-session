@@ -15,7 +15,7 @@ class Session {
 
   destroy(cb) {
     if (!this.sessionId) {
-      return;
+      return cb(null);
     }
 
     this.#store.delete(this.sessionId, (err) => {

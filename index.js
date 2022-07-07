@@ -21,11 +21,28 @@ const session = () => {
     const cookies = cookieParser(rawCookies);
 
     req.session = new Session(store);
+
+    // save session wrapper for setting cookie header
     req.session.saveSession = function (cb) {
       req.session.sessionId = generateId();
       this.save((err) => {
         if (!err) {
-          res.setHeader('Set-Cookie', `sessionId=${req.session.sessionId}`);
+          res.setHeader(
+            'Set-Cookie',
+            `sessionId=${req.session.sessionId}`
+          );
+          return cb(null);
+        }
+        return cb(err);
+      });
+    };
+
+    // destroy session wrapper
+    req.session.destroySession = function (cb) {
+      this.destroy((err) => {
+        if (!err) {
+          req.session = null;
+          res.setHeader('Set-Cookie', 'sessionId=; Max-Age=0');
           return cb(null);
         }
         return cb(err);

@@ -20,8 +20,15 @@ router.get('/login', (req, res) => {
   res.send('you are already logined');
 });
 
+router.get('/logout', (req, res) => {
+  req.session.destroySession(() => {
+    console.log('destroyed');
+    res.send('you are logged out');
+  });
+});
+
 router.get('/', (req, res) => {
-  console.log(req.session.sessionId);
+  console.log(req.session.userId);
   console.log(req.session.username);
   res.send('ok');
 });

@@ -80,7 +80,7 @@
     "no-invalid-this": "error",
     "no-lone-blocks": "error",
     "no-loop-func": "error",
-    "no-proto": "error",
+    "no-proto": "off",
     "prefer-spread": "warn",
     "no-useless-call": "error",
     "no-param-reassign": "error",
