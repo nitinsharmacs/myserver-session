@@ -26,7 +26,7 @@ router.post('/login', (req, res) => {
   const {username} = req.body;
   if (userDb.exists(username)) {
     req.session.logined = true;
-    req.session.save((err) => {
+    req.session.saveSession((err) => {
       if (err) {
         return res.redirect('/login');
       }
@@ -35,7 +35,7 @@ router.post('/login', (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
-  req.session.destroy((err)  => {
+  req.session.destroySession((err)  => {
     if (err) {
       console.log('some error occured');
     }
