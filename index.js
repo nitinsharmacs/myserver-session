@@ -61,6 +61,8 @@ const session = () => {
 
         return next();
       });
+
+      return;
     }
 
     next();
