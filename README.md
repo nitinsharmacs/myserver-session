@@ -1,6 +1,10 @@
-## myserver-session
+# myserver-session
 
-Session management nodejs module for `myserver`.
+Session management nodejs module for [`myserver`](https://github.com/nitinsharmacs/myserver).
+
+
+## Getting Started
+---
 
 ``` js
 const { myserver, Router } = require('myserver');
@@ -46,7 +50,8 @@ router.get('/logout', (req, res) => {
 });
 ```
 
-## Installation
+### Installation
+---
 
 This node module can be installed using npm
 
