@@ -1,6 +1,6 @@
 ## myserver-session
 
-Session management system for myserver.
+Session management nodejs module for `myserver`.
 
 ``` js
 const { myserver, Router } = require('myserver');
@@ -24,6 +24,7 @@ router.use((req, res, next) => {
 
 router.post('/login', (req, res) => {
   const {username} = req.body;
+
   if (userDb.exists(username)) {
     req.session.logined = true;
     req.session.saveSession((err) => {
